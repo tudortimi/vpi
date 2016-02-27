@@ -1,0 +1,4 @@
+-incdir sv
+sv/vpi.sv
+
+test/test.sv
