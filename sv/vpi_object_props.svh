@@ -17,6 +17,9 @@ parameter vpiUndefined = -1;
 parameter vpiType = 1;
 parameter vpiName = 2;
 
+parameter vpiTimeUnit = 11;
+parameter vpiTimePrecision = 12;
+
 parameter vpiRandType = 610;
 parameter vpiNotRand = 1;
 parameter vpiRand = 2;
