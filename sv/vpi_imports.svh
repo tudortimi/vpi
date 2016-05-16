@@ -25,8 +25,18 @@ import "DPI-C" context vpi_get_str__ =
 import "DPI-C" context vpi_iterate__ =
   function vpiHandle vpi_iterate(PLI_INT32 type_, vpiHandle ref_);
 
-import "DPI-C" context function vpiHandle vpi_handle(PLI_INT32 type_,
-  vpiHandle ref_);
+import "DPI-C" context vpi_handle__ =
+  function vpiHandle vpi_handle(PLI_INT32 type_, vpiHandle ref_);
+
+import "DPI-C" context vpi_handle_by_name__ =
+  function vpiHandle vpi_handle_by_name(string name, vpiHandle scope);
 
 import "DPI-C" context vpi_scan__ =
   function vpiHandle vpi_scan(vpiHandle itr);
+
+
+import "DPI-C" context
+  function int vpi_get_value_int(vpiHandle obj);
+
+import "DPI-C" context
+  function void vpi_put_value_int(vpiHandle obj, int value);

@@ -13,4 +13,5 @@
 // limitations under the License.
 
 
+parameter vpiArgument = 89;
 parameter vpiVariables = 100;

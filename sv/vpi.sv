@@ -17,6 +17,7 @@ package vpi;
   `include "vpi_types.svh"
   `include "vpi_object_types.svh"
   `include "vpi_object_props.svh"
+  `include "vpi_relationships_one_to_one.svh"
   `include "vpi_relationships_one_to_many.svh"
   `include "vpi_imports.svh"
 endpackage

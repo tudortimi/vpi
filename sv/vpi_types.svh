@@ -13,7 +13,9 @@
 // limitations under the License.
 
 
+typedef bit[7:0] PLI_BYTE8;
 typedef int PLI_INT32;
+typedef int unsigned PLI_UINT32;
 typedef longint PLI_INT64;
 
 typedef chandle vpiHandle;
