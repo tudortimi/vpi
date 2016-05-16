@@ -20,3 +20,4 @@ parameter vpiClassTypespec = 630;
 
 parameter vpiOrigin = 713;
 parameter vpiPrefix = 714;
+parameter vpiInstance = 745;
