@@ -20,6 +20,11 @@ parameter vpiName = 2;
 parameter vpiTimeUnit = 11;
 parameter vpiTimePrecision = 12;
 
+parameter vpiDirection = 20;
+parameter vpiInput = 1;
+parameter vpiOutput = 2;
+parameter vpiInout = 3;
+
 parameter vpiActive = 49;
 
 parameter vpiRandType = 610;
@@ -27,4 +32,5 @@ parameter vpiNotRand = 1;
 parameter vpiRand = 2;
 parameter vpiRandC = 3;
 
+parameter vpiMethod = 645;
 parameter vpiObjId = 660;

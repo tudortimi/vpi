@@ -12,9 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
+parameter vpiFunction = 20;
+parameter vpiIODecl = 28;
 parameter vpiModule = 32;
+parameter vpiTask = 59;
 
+parameter vpiExpr = 102;
 parameter vpiFrame = 110;
 
 parameter vpiPackage = 600;

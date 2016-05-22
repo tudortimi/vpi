@@ -14,10 +14,11 @@
 
 parameter vpiScope = 84;
 
-parameter PLI_INT32 vpiClassObj = 621;
+parameter vpiClassObj = 621;
 
 parameter vpiClassTypespec = 630;
 
+parameter vpiReturn = 666;
 parameter vpiOrigin = 713;
 parameter vpiPrefix = 714;
 parameter vpiInstance = 745;
