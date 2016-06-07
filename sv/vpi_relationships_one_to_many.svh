@@ -16,4 +16,5 @@
 parameter vpiArgument = 89;
 parameter vpiVariables = 100;
 
+parameter vpiDerivedClasses = 727;
 parameter vpiMethods = 730;

@@ -16,8 +16,6 @@ parameter vpiScope = 84;
 
 parameter vpiClassObj = 621;
 
-parameter vpiClassTypespec = 630;
-
 parameter vpiReturn = 666;
 parameter vpiOrigin = 713;
 parameter vpiPrefix = 714;

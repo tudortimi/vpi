@@ -24,5 +24,7 @@ parameter vpiPackage = 600;
 parameter vpiTypespec = 605;
 
 parameter vpiIntTypespec = 629;
+parameter vpiClassTypespec = 630;
 
 parameter vpiClassDefn = 652;
+parameter vpiExtends = 677;
