@@ -1,4 +1,4 @@
-// Copyright 2016 Tudor Timisescu (verificationgentleman.com)
+// Copyright 2016-2018 Tudor Timisescu (verificationgentleman.com)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,10 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
 parameter vpiFunction = 20;
 parameter vpiIODecl = 28;
 parameter vpiModule = 32;
 parameter vpiTask = 59;
+
+parameter vpiAttribute = 105;
 
 parameter vpiExpr = 102;
 parameter vpiFrame = 110;
