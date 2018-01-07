@@ -33,5 +33,7 @@ parameter vpiNotRand = 1;
 parameter vpiRand = 2;
 parameter vpiRandC = 3;
 
+parameter vpiVirtual = 635;
+
 parameter vpiMethod = 645;
 parameter vpiObjId = 660;
