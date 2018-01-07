@@ -27,6 +27,8 @@ parameter vpiOutput = 2;
 parameter vpiInout = 3;
 
 parameter vpiActive = 49;
+parameter vpiAutomatic = 50;
+parameter vpiConstantVariable = 612;
 
 parameter vpiRandType = 610;
 parameter vpiNotRand = 1;
