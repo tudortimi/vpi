@@ -26,6 +26,8 @@ parameter vpiFrame = 110;
 parameter vpiPackage = 600;
 parameter vpiTypespec = 605;
 
+parameter vpiStringVar = 616;
+
 parameter vpiIntTypespec = 629;
 parameter vpiClassTypespec = 630;
 
