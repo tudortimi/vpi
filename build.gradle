@@ -9,5 +9,8 @@ sourceSets {
         sv {
             srcDirs = ['sv']
         }
+        c {
+            srcDirs = ['c']
+        }
     }
 }
