@@ -12,3 +12,7 @@ gradle-app.setting
 .gradletasknamecache
 
 *.log
+
+# DVT
+.dvt/*.ls
+.dvt/build.config.xml
