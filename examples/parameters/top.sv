@@ -32,6 +32,18 @@ module top;
         $display("  param_assign = %d", param_assign);
         $display("    type = %s", vpi_get_str(vpiType, param_assign));
         $display("    name = %s", vpi_get_str(vpiName, param_assign));
+
+        begin
+          automatic vpiHandle lhs = vpi_handle(vpiLhs, param_assign);
+          automatic vpiHandle rhs = vpi_handle(vpiRhs, param_assign);
+
+          $display("    lhs = %d", lhs);
+          $display("      type = %s", vpi_get_str(vpiType, lhs));
+          $display("      name = %s", vpi_get_str(vpiName, lhs));
+
+          $display("    rhs = %d", rhs);
+          $display("      type = %s", vpi_get_str(vpiType, rhs));
+        end
       end
     end
   end
