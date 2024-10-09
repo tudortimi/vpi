@@ -8,5 +8,18 @@ module top;
     $display("some_module_inst = %d", some_module_inst);
     $display("  type = %s", vpi_get_str(vpiType, some_module_inst));
     $display("  name = %s", vpi_get_str(vpiName, some_module_inst));
+
+    begin
+      automatic vpiHandle param_iter = vpi_iterate(vpiParameter, some_module_inst);
+      forever begin
+        automatic vpiHandle param = vpi_scan(param_iter);
+        if (param == null)
+          break;
+
+        $display("  param = %d", param);
+        $display("    type = %s", vpi_get_str(vpiType, param));
+        $display("    name = %s", vpi_get_str(vpiName, param));
+      end
+    end
   end
 endmodule
