@@ -27,3 +27,41 @@ task test(type: Exec) {
     workingDir xrunDir
     mkdir workingDir
 }
+
+sourceSets {
+    paramsExample {
+        sv {
+            srcDir 'examples/parameters'
+        }
+    }
+}
+
+dependencies {
+    paramsExampleCompile files(genXrunArgsFile.destination)
+}
+
+abstract class RunExample extends DefaultTask {
+    @InputFile
+    abstract RegularFileProperty getFullXrunArgsFile()
+
+    @OutputDirectory
+    abstract DirectoryProperty getWorkingDir()
+
+    @TaskAction
+    def run() {
+        def workDir = workingDir
+        project.exec {
+            executable 'xrun'
+            args'-f', fullXrunArgsFile.get().asFile
+            args '-access', 'rwc'
+            args '-top', 'top'
+            workingDir workDir
+        }
+    }
+}
+
+task runParamsExample(type: RunExample) {
+    fullXrunArgsFile = genFullParamsExampleXrunArgsFile.destination
+    workingDir = file("$buildDir/params-example")
+    outputs.upToDateWhen { false }
+}
