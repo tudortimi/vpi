@@ -16,6 +16,7 @@
 parameter vpiFunction = 20;
 parameter vpiIODecl = 28;
 parameter vpiModule = 32;
+parameter vpiParamAssign = 40;
 parameter vpiParameter = 41;
 parameter vpiTask = 59;
 

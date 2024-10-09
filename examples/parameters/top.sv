@@ -21,5 +21,18 @@ module top;
         $display("    name = %s", vpi_get_str(vpiName, param));
       end
     end
+
+    begin
+      automatic vpiHandle param_assign_iter = vpi_iterate(vpiParamAssign, some_module_inst);
+      forever begin
+        automatic vpiHandle param_assign = vpi_scan(param_assign_iter);
+        if (param_assign == null)
+          break;
+
+        $display("  param_assign = %d", param_assign);
+        $display("    type = %s", vpi_get_str(vpiType, param_assign));
+        $display("    name = %s", vpi_get_str(vpiName, param_assign));
+      end
+    end
   end
 endmodule
