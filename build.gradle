@@ -16,18 +16,6 @@ sourceSets {
     }
 }
 
-extensions.xrunDir = file("$buildDir/xrun")
-
-task test(type: Exec) {
-    dependsOn genFullXrunArgsFile
-    executable 'xrun'
-    args'-f', genFullXrunArgsFile.destination.get().asFile
-    args file('test/test.sv')
-    args '-access', 'rwc'
-    workingDir xrunDir
-    mkdir workingDir
-}
-
 sourceSets {
     attrsExample {
         sv {
