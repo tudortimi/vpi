@@ -29,6 +29,11 @@ task test(type: Exec) {
 }
 
 sourceSets {
+    attrsExample {
+        sv {
+            srcDir 'examples/attributes'
+        }
+    }
     paramsExample {
         sv {
             srcDir 'examples/parameters'
@@ -37,6 +42,7 @@ sourceSets {
 }
 
 dependencies {
+    attrsExampleCompile files(genXrunArgsFile.destination)
     paramsExampleCompile files(genXrunArgsFile.destination)
 }
 
@@ -58,6 +64,12 @@ abstract class RunExample extends DefaultTask {
             workingDir workDir
         }
     }
+}
+
+task runAttrsExample(type: RunExample) {
+    fullXrunArgsFile = genFullAttrsExampleXrunArgsFile.destination
+    workingDir = file("$buildDir/attrs-example")
+    outputs.upToDateWhen { false }
 }
 
 task runParamsExample(type: RunExample) {
