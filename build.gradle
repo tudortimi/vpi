@@ -16,19 +16,12 @@ sourceSets {
     }
 }
 
-extensions.xrunDir = file("$buildDir/xrun")
-
-task test(type: Exec) {
-    dependsOn genFullXrunArgsFile
-    executable 'xrun'
-    args'-f', genFullXrunArgsFile.destination.get().asFile
-    args file('test/test.sv')
-    args '-access', 'rwc'
-    workingDir xrunDir
-    mkdir workingDir
-}
-
 sourceSets {
+    attrsExample {
+        sv {
+            srcDir 'examples/attributes'
+        }
+    }
     paramsExample {
         sv {
             srcDir 'examples/parameters'
@@ -37,6 +30,7 @@ sourceSets {
 }
 
 dependencies {
+    attrsExampleCompile files(genXrunArgsFile.destination)
     paramsExampleCompile files(genXrunArgsFile.destination)
 }
 
@@ -58,6 +52,12 @@ abstract class RunExample extends DefaultTask {
             workingDir workDir
         }
     }
+}
+
+task runAttrsExample(type: RunExample) {
+    fullXrunArgsFile = genFullAttrsExampleXrunArgsFile.destination
+    workingDir = file("$buildDir/attrs-example")
+    outputs.upToDateWhen { false }
 }
 
 task runParamsExample(type: RunExample) {
