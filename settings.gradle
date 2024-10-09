@@ -1,5 +1,1 @@
-pluginManagement {
-    repositories {
-        mavenLocal()
-    }
-}
+// Intentionally empty
