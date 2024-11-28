@@ -16,3 +16,4 @@ gradle-app.setting
 # DVT
 .dvt/*.ls
 .dvt/build.config.xml
+.dvt/.build_config_dict/
