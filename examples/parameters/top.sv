@@ -57,6 +57,7 @@ module top;
         automatic vpiHandle rhs_of_param_assign = vpi_handle(vpiRhs, param_assign_to_part_select);
         automatic vpiHandle parent_of_part_select;
         automatic vpiHandle left_range_of_part_select;
+        automatic int left_range_val;
 
         assert (vpi_get(vpiType, rhs_of_param_assign) == vpiPartSelect)
           $display("  RHS is a part select");
@@ -74,6 +75,12 @@ module top;
           $display("    The left range of the part select is a constant (@%0d)", left_range_of_part_select);
         else
           $error("The left range of the part select is not a constant, but a %s (@%0d)", vpi_get_str(vpiType, left_range_of_part_select), left_range_of_part_select);
+
+        left_range_val = vpi_get_value_int(left_range_of_part_select);
+        assert (left_range_val == 15)
+          $display("      The value of the left range is %0d", left_range_val);
+        else
+          $error("The value of the left range is %0d", left_range_val);
       end
     end
   end
