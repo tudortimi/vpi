@@ -13,6 +13,7 @@
 // limitations under the License.
 
 
+parameter vpiConstant = 7;
 parameter vpiFunction = 20;
 parameter vpiIODecl = 28;
 parameter vpiModule = 32;

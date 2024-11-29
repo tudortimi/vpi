@@ -70,7 +70,10 @@ module top;
           $error("The operand of the part select is not the SOME_VALUE parameter, but (@%0d)", parent_of_part_select);
 
         left_range_of_part_select = vpi_handle(vpiLeftRange, rhs_of_param_assign);
-        $display("    The left range of the part select is @%0d of type %s", left_range_of_part_select, vpi_get_str(vpiType, left_range_of_part_select));
+        assert (vpi_get(vpiType, left_range_of_part_select) == vpiConstant)
+          $display("    The left range of the part select is a constant (@%0d)", left_range_of_part_select);
+        else
+          $error("The left range of the part select is not a constant, but a %s (@%0d)", vpi_get_str(vpiType, left_range_of_part_select), left_range_of_part_select);
       end
     end
   end
