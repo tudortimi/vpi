@@ -48,5 +48,29 @@ module top;
         end
       end
     end
+
+    begin
+      automatic vpiHandle param_assign_to_part_select;
+      automatic vpiHandle param_assign_iter = vpi_iterate(vpiParamAssign, some_module_inst);
+      forever begin
+        automatic vpiHandle param_assign = vpi_scan(param_assign_iter);
+        if (param_assign == null)
+          break;
+
+        if (vpi_get_str(vpiName, param_assign) == "SOME_OTHER_INT_PARAM") begin
+          param_assign_to_part_select = param_assign;
+          break;
+        end
+      end
+
+      $display("Analyzing param assign for %s (@%0d)", vpi_get_str(vpiName, param_assign_to_part_select), param_assign_to_part_select);
+      begin
+        automatic vpiHandle rhs_of_param_assign = vpi_handle(vpiRhs, param_assign_to_part_select);
+        assert (vpi_get(vpiType, rhs_of_param_assign) == vpiPartSelect)
+          $display("  RHS is a part select");
+        else
+          $error("Unexpected type for parameter assign RHS: %s", vpi_get_str(vpiType, param_assign_to_part_select));
+      end
+    end
   end
 endmodule
