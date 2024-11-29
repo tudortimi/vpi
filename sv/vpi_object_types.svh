@@ -13,11 +13,13 @@
 // limitations under the License.
 
 
+parameter vpiConstant = 7;
 parameter vpiFunction = 20;
 parameter vpiIODecl = 28;
 parameter vpiModule = 32;
 parameter vpiParamAssign = 40;
 parameter vpiParameter = 41;
+parameter vpiPartSelect = 42;
 parameter vpiTask = 59;
 
 parameter vpiAttribute = 105;
