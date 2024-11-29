@@ -1,7 +1,9 @@
 module top;
   import vpi::*;
 
-  some_module #(.SOME_BIT_PARAM(1)) some_module_inst();
+  localparam SOME_VALUE = 'h1234;
+
+  some_module #(.SOME_BIT_PARAM(1), .SOME_OTHER_INT_PARAM(SOME_VALUE[15:8])) some_module_inst();
 
   initial begin
     automatic vpiHandle some_module_inst = vpi_handle_by_name("top.some_module_inst", null);
