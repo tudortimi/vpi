@@ -55,10 +55,18 @@ module top;
       $display("Analyzing param assign for %s (@%0d)", vpi_get_str(vpiName, param_assign_to_part_select), param_assign_to_part_select);
       begin
         automatic vpiHandle rhs_of_param_assign = vpi_handle(vpiRhs, param_assign_to_part_select);
+        automatic vpiHandle parent_of_part_select;
+
         assert (vpi_get(vpiType, rhs_of_param_assign) == vpiPartSelect)
           $display("  RHS is a part select");
         else
           $error("Unexpected type for parameter assign RHS: %s", vpi_get_str(vpiType, param_assign_to_part_select));
+
+        parent_of_part_select = vpi_handle(vpiParent, rhs_of_param_assign);
+        assert (parent_of_part_select == vpi_handle_by_name("top.SOME_VALUE", null))
+          $display("    The operand of the part select is the %s parameter (%0d)", "SOME_VALUE", vpi_handle_by_name("top.SOME_VALUE", null));
+        else
+          $error("The operand of the part select is not the SOME_VALUE parameter, but (@%0d)", parent_of_part_select);
       end
     end
   end
