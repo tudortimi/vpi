@@ -50,18 +50,7 @@ module top;
     end
 
     begin
-      automatic vpiHandle param_assign_to_part_select;
-      automatic vpiHandle param_assign_iter = vpi_iterate(vpiParamAssign, some_module_inst);
-      forever begin
-        automatic vpiHandle param_assign = vpi_scan(param_assign_iter);
-        if (param_assign == null)
-          break;
-
-        if (vpi_get_str(vpiName, param_assign) == "SOME_OTHER_INT_PARAM") begin
-          param_assign_to_part_select = param_assign;
-          break;
-        end
-      end
+      automatic vpiHandle param_assign_to_part_select = get_param_assign(some_module_inst, "SOME_OTHER_INT_PARAM");
 
       $display("Analyzing param assign for %s (@%0d)", vpi_get_str(vpiName, param_assign_to_part_select), param_assign_to_part_select);
       begin
@@ -73,4 +62,18 @@ module top;
       end
     end
   end
+
+
+  function vpiHandle get_param_assign(vpiHandle mod, string param_name);
+    automatic vpiHandle param_assign_iter = vpi_iterate(vpiParamAssign, mod);
+    forever begin
+      automatic vpiHandle param_assign = vpi_scan(param_assign_iter);
+      if (param_assign == null)
+        break;
+
+      if (vpi_get_str(vpiName, param_assign) == param_name)
+        return param_assign;
+    end
+  endfunction
+
 endmodule
