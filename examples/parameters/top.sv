@@ -56,6 +56,7 @@ module top;
       begin
         automatic vpiHandle rhs_of_param_assign = vpi_handle(vpiRhs, param_assign_to_part_select);
         automatic vpiHandle parent_of_part_select;
+        automatic vpiHandle left_range_of_part_select;
 
         assert (vpi_get(vpiType, rhs_of_param_assign) == vpiPartSelect)
           $display("  RHS is a part select");
@@ -67,6 +68,9 @@ module top;
           $display("    The operand of the part select is the %s parameter (%0d)", "SOME_VALUE", vpi_handle_by_name("top.SOME_VALUE", null));
         else
           $error("The operand of the part select is not the SOME_VALUE parameter, but (@%0d)", parent_of_part_select);
+
+        left_range_of_part_select = vpi_handle(vpiLeftRange, rhs_of_param_assign);
+        $display("    The left range of the part select is @%0d of type %s", left_range_of_part_select, vpi_get_str(vpiType, left_range_of_part_select));
       end
     end
   end
