@@ -100,10 +100,10 @@ module top;
   end
 
 
-  function vpiHandle get_param_assign(vpiHandle mod, string param_name);
-    automatic vpiHandle param_assign_iter = vpi_iterate(vpiParamAssign, mod);
+  function automatic vpiHandle get_param_assign(vpiHandle mod, string param_name);
+    vpiHandle param_assign_iter = vpi_iterate(vpiParamAssign, mod);
     forever begin
-      automatic vpiHandle param_assign = vpi_scan(param_assign_iter);
+      vpiHandle param_assign = vpi_scan(param_assign_iter);
       if (param_assign == null)
         break;
 
