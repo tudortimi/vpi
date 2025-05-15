@@ -75,3 +75,10 @@ char* vpi_get_value_string(vpiHandle obj) {
   vpi_get_value(obj, &v);
   return v.value.str;
 }
+
+void vpi_put_value_string(vpiHandle obj, char* value) {
+  s_vpi_value v;
+  v.format = vpiStringVal;
+  v.value.str = value;
+  vpi_put_value(obj, &v, NULL, vpiNoDelay);
+}

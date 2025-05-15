@@ -43,3 +43,6 @@ import "DPI-C" context
 
 import "DPI-C" context
   function string vpi_get_value_string(vpiHandle obj);
+
+import "DPI-C" context
+  function void vpi_put_value_string(vpiHandle obj, string value);
