@@ -14,6 +14,7 @@
 
 
 parameter vpiLhs = 77;
+parameter vpiIndex = 78;
 parameter vpiLeftRange = 79;
 parameter vpiParent = 81;
 parameter vpiRhs = 82;
