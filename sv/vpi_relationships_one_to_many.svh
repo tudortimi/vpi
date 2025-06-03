@@ -18,3 +18,5 @@ parameter vpiVariables = 100;
 
 parameter vpiDerivedClasses = 727;
 parameter vpiMethods = 730;
+
+parameter vpiMember = 742;
