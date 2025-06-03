@@ -17,6 +17,7 @@ parameter vpiUndefined = -1;
 parameter vpiType = 1;
 parameter vpiName = 2;
 parameter vpiFullName = 3;
+parameter vpiSize = 4;
 parameter vpiDefName = 9;
 parameter vpiTimeUnit = 11;
 parameter vpiTimePrecision = 12;
